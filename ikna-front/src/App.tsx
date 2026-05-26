@@ -1,31 +1,13 @@
-import { useState } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './app/providers/AuthProvider'
-import { useAuth } from './app/providers/useAuth'
-import { DashboardPage } from './pages/DashboardPage/DashboardPage'
-import { LoginPage } from './pages/LoginPage/LoginPage'
-import { RegisterPage } from './pages/RegisterPage/RegisterPage'
-
-type AuthScreen = 'login' | 'register'
-
-const AppContent = () => {
-  const { user } = useAuth()
-  const [authScreen, setAuthScreen] = useState<AuthScreen>('login')
-
-  if (user) {
-    return <DashboardPage />
-  }
-
-  return authScreen === 'login' ? (
-    <LoginPage onRegisterClick={() => setAuthScreen('register')} />
-  ) : (
-    <RegisterPage onLoginClick={() => setAuthScreen('login')} />
-  )
-}
+import { AppRouter } from './app/router/AppRouter'
 
 function App() {
   return (
     <AuthProvider>
-      <AppContent />
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
     </AuthProvider>
   )
 }

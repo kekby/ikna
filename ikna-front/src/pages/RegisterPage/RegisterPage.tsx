@@ -32,8 +32,8 @@ export const RegisterPage = ({ onLoginClick }: RegisterPageProps) => {
 
   return (
     <AuthLayout
-      title="Создайте учебное пространство"
-      description="Аккаунт пока хранится локально в браузере, чтобы можно было отработать пользовательский сценарий без backend."
+      title="Запоминайте больше с каждым повторением"
+      description="Создайте профиль, чтобы сохранять учебный прогресс и возвращаться к карточкам в нужный момент."
     >
       <form className="auth-form" onSubmit={handleSubmit}>
         <div className="auth-form__header">
